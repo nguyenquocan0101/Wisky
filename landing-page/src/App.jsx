@@ -115,7 +115,7 @@ function App() {
             <h1>A Decade of Excellence: Bridging Talent and Technology</h1>
             <p>2016 - 2026. Empowering the business community through integrated solutions in Education, HR, and Technology.</p>
             <div className="hero-btns">
-              <a href="mailto:cp@wisky.vn" className="btn btn-primary">Get In Touch</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cp@wisky.vn" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Get In Touch</a>
             </div>
           </motion.div>
           <motion.div 
