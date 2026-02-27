@@ -83,13 +83,27 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section 
-        className="hero" 
-        style={{ 
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${backgrounds[bgIndex]})`,
-          transition: 'background-image 1.5s ease-in-out'
-        }}
-      >
+      <section className="hero">
+        {backgrounds.map((bg, idx) => (
+          <motion.div
+            key={idx}
+            className="hero-bg"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: bgIndex === idx ? 1 : 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ 
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${bg})`,
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              zIndex: -1
+            }}
+          />
+        ))}
         <div className="container hero-content">
           <motion.div 
             className="hero-text"
