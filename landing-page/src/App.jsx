@@ -260,10 +260,8 @@ function App() {
               <p style={{ opacity: 0.9, fontWeight: 600 }}>WISKY – TECHNOLOGY SOLUTION</p>
               <p style={{ opacity: 0.8, maxWidth: '300px', fontSize: '0.9rem', marginTop: '5px' }}>10 Years of Innovation and Partnership.</p>
               <div style={{ marginTop: '20px', fontSize: '0.85rem', opacity: 0.7 }}>
-                <p style={{ marginBottom: '5px' }}>Address: [Your Address Here]</p>
-                <p style={{ marginBottom: '5px' }}>Phone: [Your Phone Here]</p>
-                <p style={{ marginBottom: '5px' }}>Email: [Your Email Here]</p>
-                <p>Website: [Your Website Here]</p>
+                <p style={{ marginBottom: '5px' }}>Address: Student Cultural House of VNU-HCMC No. 1 Luu Huu Phuoc, Dong Hoa, Di An, Ho Chi Minh City</p>
+                <p style={{ marginBottom: '5px' }}>Email: cp@wisky.vn</p>
               </div>
             </div>
             <div className="footer-col">
