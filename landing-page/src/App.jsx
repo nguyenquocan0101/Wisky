@@ -115,7 +115,7 @@ function App() {
             <h1>A Decade of Excellence: Bridging Talent and Technology</h1>
             <p>2016 - 2026. Empowering the business community through integrated solutions in Education, HR, and Technology.</p>
             <div className="hero-btns">
-              <button className="btn btn-primary" onClick={() => window.location.href = 'mailto:cp@wisky.vn'}>Get In Touch</button>
+              <a href="mailto:cp@wisky.vn" className="btn btn-primary">Get In Touch</a>
             </div>
           </motion.div>
           <motion.div 
