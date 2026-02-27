@@ -153,24 +153,18 @@ function App() {
             </p>
 
             <div className="vision-cards">
-              <div className="mini-card active">
+              <div className="mini-card">
                 <div className="card-icon"><Target size={24} /></div>
                 <h4>Our Mission</h4>
                 <p>To accompany and support the business community in the journey of effectively developing both short-term and long-term goals.</p>
               </div>
-              <div className="mini-card vision-c">
+              <div className="mini-card">
                 <div className="card-icon"><Globe size={24} /></div>
                 <h4>Our Vision</h4>
                 <p>To become a leading provider of comprehensive technology solutions across the country and the region.</p>
               </div>
             </div>
 
-            <div className="vision-btns" style={{ justifyContent: 'center' }}>
-               <button className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                 Start Your Journey <ArrowRight size={18} />
-               </button>
-               <button className="btn btn-outline">Meet the Team</button>
-            </div>
           </motion.div>
         </div>
       </section>
