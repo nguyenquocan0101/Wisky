@@ -63,9 +63,8 @@ function App() {
       {/* Header */}
       <header className={`${isScrolled ? 'scrolled' : 'transparent'} main-header`}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <a href="/" className="logo" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <img src={logoImg} alt="Wisky Logo" style={{ height: '55px', objectFit: 'contain' }} />
-            <span style={{ fontWeight: 800, fontSize: '1.8rem', letterSpacing: '1px', color: 'var(--primary-color)' }}>WISKY</span>
+          <a href="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={logoImg} alt="Wisky Logo" style={{ height: '70px', objectFit: 'contain' }} />
           </a>
 
           <nav style={{ display: 'flex', gap: '40px', alignItems: 'center' }} className={mobileMenuOpen ? 'mobile-nav open' : 'nav-links'}>
