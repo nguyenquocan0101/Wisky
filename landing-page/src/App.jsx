@@ -14,7 +14,9 @@ import {
   ShieldCheck,
   TrendingUp,
   ArrowRight,
-  MapPin
+  MapPin,
+  Mail,
+  Check
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './App.css';
@@ -34,10 +36,17 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [bgIndex, setBgIndex] = useState(0);
+  const [showFloatingBtn, setShowFloatingBtn] = useState(false);
+  const contactRef = React.useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      if (contactRef.current) {
+        const rect = contactRef.current.getBoundingClientRect();
+        setShowFloatingBtn(rect.bottom < 0);
+      }
     };
     window.addEventListener('scroll', handleScroll);
 
@@ -115,7 +124,15 @@ function App() {
             <h1>A Decade of Excellence: Bridging Talent and Technology</h1>
             <p>2016 - 2026. Empowering the business community through integrated solutions in Education, HR, and Technology.</p>
             <div className="hero-btns">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cp@wisky.vn" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Get In Touch</a>
+              <a 
+                ref={contactRef}
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=cp@wisky.vn" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-primary"
+              >
+                Get In Touch
+              </a>
             </div>
           </motion.div>
           <motion.div 
@@ -141,27 +158,46 @@ function App() {
             viewport={{ once: true }}
             style={{ width: '100%', textAlign: 'center' }}
           >
-            <div className="label-head" style={{ justifyContent: 'center' }}>
+            {/* <div className="label-head" style={{ justifyContent: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                  <span></span> OUR FOUNDATION
               </div>
-            </div>
+            </div> */}
             <h2>Designing the <span>Digital Future</span> with Purpose.</h2>
             <p className="vision-desc">
               We don't just build software; we engineer pathways for global transformation. 
               Our core values drive every pixel we place and every line of code we deploy.
             </p>
 
-            <div className="vision-cards">
-              <div className="mini-card">
-                <div className="card-icon"><Target size={24} /></div>
-                <h4>Our Mission</h4>
-                <p>To accompany and support the business community in the journey of effectively developing both short-term and long-term goals.</p>
+            <div className="vision-cards-new">
+              {/* Mission Card - Light */}
+              <div className="vision-card light">
+                {/* <div className="card-top">
+                  <span className="card-dash"></span>
+                  <span className="card-label">OUR MISSION</span>
+                </div> */}
+                <h3 className="card-title">
+                  Strategic<br />
+                  <span>Partnership.</span>
+                </h3>
+                <div className="card-description">
+                  <p>To accompany and support the business community in the journey of effectively developing both short-term and long-term goals.</p>
+                </div>
               </div>
-              <div className="mini-card">
-                <div className="card-icon"><Globe size={24} /></div>
-                <h4>Our Vision</h4>
-                <p>To become a leading provider of comprehensive technology solutions across the country and the region.</p>
+
+              {/* Vision Card - Dark */}
+              <div className="vision-card dark">
+                {/* <div className="card-top">
+                  <span className="card-dash"></span>
+                  <span className="card-label">OUR VISION</span>
+                </div> */}
+                <h3 className="card-title">
+                  Digital<br />
+                  <span>Leadership.</span>
+                </h3>
+                <div className="card-description">
+                  <p>To become a leading provider of comprehensive technology solutions across the country and the region.</p>
+                </div>
               </div>
             </div>
 
@@ -215,28 +251,34 @@ function App() {
         </div>
       </section>
 
-      {/* Key Value Propositions Section */}
-      <section className="stats-section" id="values" style={{ background: 'var(--bg-light)', padding: '80px 0' }}>
+      {/* Growing Together, Succeeding Together Section */}
+      <section className="values-section-new" id="values">
         <div className="container">
           <div className="section-title">
-            <h2>Key Value Propositions</h2>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '40px', textAlign: 'center' }}>Growing Together, Succeeding Together</h2>
           </div>
-          <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px' }}>
+          <div className="values-grid">
             {[
-              { icon: <Clock />, title: '10+ Years of Heritage', desc: 'Proven reliability and professional integrity since 2016.' },
-              { icon: <ShieldCheck />, title: 'Comprehensive Solutions', desc: 'An integrated ecosystem of Education, HR, and Technology.' },
-              { icon: <TrendingUp />, title: 'Strategic Support', desc: 'Dedicated to helping partners achieve their milestones through every stage of growth.' },
-              { icon: <MapPin />, title: 'Regional Reach', desc: 'Leading technology provider across the nation and the surrounding region.' }
+              { title: '10+ Years of Heritage', desc: 'Proven reliability and professional integrity since 2016.' },
+              { title: 'Comprehensive Solutions', desc: 'An integrated ecosystem of Education, HR, and Technology.' },
+              { title: 'Strategic Support', desc: 'Dedicated to helping partners achieve their milestones through every stage of growth.' },
+              { title: 'Regional Reach', desc: 'Leading technology provider across the nation and the surrounding region.' }
             ].map((v, i) => (
               <motion.div 
                 key={i} 
-                className="stat-item" 
+                className="value-item" 
                 {...fadeIn}
-                style={{ textAlign: 'center' }}
+                transition={{ delay: i * 0.1 }}
               >
-                <div style={{ color: 'var(--primary-color)', marginBottom: '15px' }}>{v.icon}</div>
-                <h3 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>{v.title}</h3>
-                <p style={{ color: 'var(--text-muted)' }}>{v.desc}</p>
+                <div className="value-header">
+                  <div className="value-icon-box">
+                    <Check size={14} strokeWidth={4} color="white" />
+                  </div>
+                  <h3>{v.title}</h3>
+                </div>
+                <div className="value-content">
+                  <p>{v.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -282,6 +324,17 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Contact Button */}
+      <a 
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=cp@wisky.vn" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={`floating-contact ${showFloatingBtn ? 'visible' : ''}`}
+        aria-label="Email Us"
+      >
+        <Mail size={24} />
+      </a>
     </div>
   );
 }
