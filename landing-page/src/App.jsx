@@ -25,8 +25,8 @@ import logoImg from './assets/logo.png';
 import headerRightImg from './assets/header_right.png';
 import bg1 from './assets/bg1.jpg';
 import bg2 from './assets/bg2.avif';
-import pillarEdu from './assets/pillar_edu.png';
-import pillarTrain from './assets/pillar_train.png';
+import pillarEdu from './assets/pillar_edu.JPG';
+import pillarTrain from './assets/pillar_train.jpg';
 import pillarStaff from './assets/pillar_staff.png';
 import pillarTech from './assets/pillar_tech.png';
 
