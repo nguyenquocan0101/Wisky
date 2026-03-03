@@ -209,7 +209,7 @@ function App() {
       <section className="pillars-redesign" id="pillars">
         <div className="container">
           <div className="section-title">
-            <h2 style={{ fontSize: '2.8rem', marginBottom: '15px' }}>Core Business Pillars</h2>
+            <h2 style={{ fontSize: '2.8rem', marginBottom: '15px' }}>Building the Future Through Expertise</h2>
             <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)' }}>Strategic areas driving excellence across regions.</p>
           </div>
           <div className="pillars-grid">
