@@ -70,22 +70,24 @@ function App() {
   return (
     <div className="app">
       {/* Header */}
-      <header className={`${isScrolled ? 'scrolled' : 'transparent'} main-header`}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <a href="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-            <img src={logoImg} alt="Wisky Logo" style={{ height: '70px', objectFit: 'contain' }} />
+      <header className={`${isScrolled ? 'scrolled' : 'transparent'} main-header ${mobileMenuOpen ? 'menu-open' : ''}`}>
+        <div className="container header-container">
+          {/* Nút giả bên trái để cân bằng logo ở giữa trên mobile */}
+          <div className="header-spacer mobile-only"></div>
+
+          <a href="/" className="logo">
+            <img src={logoImg} alt="Wisky Logo" />
           </a>
 
-          <nav style={{ display: 'flex', gap: '40px', alignItems: 'center' }} className={mobileMenuOpen ? 'mobile-nav open' : 'nav-links'}>
-            <a href="#about" style={{ fontSize: '1.1rem', fontWeight: 600 }}>About Us</a>
-            <a href="#pillars" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Core Pillars</a>
-            <a href="#values" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Values</a>
-            <a href="#contact" style={{ fontSize: '1.1rem', fontWeight: 600 }}>Contact</a>
+          <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
+            <a href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
+            <a href="#pillars" onClick={() => setMobileMenuOpen(false)}>Core Pillars</a>
+            <a href="#values" onClick={() => setMobileMenuOpen(false)}>Values</a>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
           </nav>
 
-
-          <button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ display: 'none' }}>
-            {mobileMenuOpen ? <X /> : <Menu />}
+          <button className="mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle Menu">
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </header>
